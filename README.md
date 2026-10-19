@@ -18,7 +18,7 @@ Build de produção: `npm run build`. Conferência do build: `npm run preview --
 
 Dados comerciais em `src/store.js`. Nome, áreas de atuação, 26 anos, endereço e WhatsApp foram confirmados no perfil público e nas legendas da loja. Fontes e referências setoriais em [RESEARCH.md](RESEARCH.md).
 
-A direção visual segue a referência de Instagram enviada pelo usuário: azul, amarelo, símbolo de áudio e tipografia com presença de loja. As fotos reais do perfil estão em `public/images/` e são servidas localmente, sem URLs de CDN que expiram. O logo é exibido a partir da região da marca em uma publicação oficial, com enquadramento CSS; não foi redesenhado.
+A direção visual segue a referência de Instagram enviada pelo usuário: azul, amarelo, símbolo de áudio e tipografia com presença de loja. As fotos reais do perfil estão em `public/images/` e são servidas localmente, sem URLs de CDN que expiram. O logo foi tratado a partir das referências oficiais para uso com fundo transparente. A foto do grupo mantém o arquivo original do Instagram, com enquadramento e correção leve de cor em CSS para preservar as pessoas.
 
 A navegação por departamento usa abas com suporte a clique, teclado (setas, Home e End), painel de imagem e contato contextual por WhatsApp. Os reels levam às publicações originais da loja. O botão de pausa e `prefers-reduced-motion` controlam as animações.
 

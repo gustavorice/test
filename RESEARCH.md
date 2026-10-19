@@ -31,7 +31,7 @@ Materiais locais:
 - loja-ferramentas.jpg — Decrjt9JBlX, equipe e ferramentas reais.
 - cuidados-automotivos.jpg — DeSfNyipYXa, equipe e carro.
 - loja-acessorios.jpg — DeNT-jcp23W, equipe e corredor da loja.
-- encontro-frahm.jpg — DdpTfxNiex7, arte e registro do evento. A região superior da marca é enquadrada por CSS para uso no cabeçalho.
+- encontro-frahm.jpg — DdpTfxNiex7, arte e registro do evento. Preservado como material original de referência.
 - eletrica.jpg — Del5Gc7PR-L, publicação oficial em homenagem ao Dia do Eletricista. Não apresentada como foto da loja.
 
 O site https://www.dannisom.com.br/ foi consultado e também confirma Rua 9, 2419, Santana, além de áudio, vídeo, cabos, componentes e amplificadores. O logo antigo e o fundo genérico desse site não foram usados. Não copiamos o formulário sem backend funcional.
@@ -43,3 +43,10 @@ A consulta do Google Maps apenas por “Rua 9, 2419, Rio Claro, SP” resolveu p
 ## Referências adicionais consultadas
 
 https://www.audioprime.com.br/ respondeu HTTP 200, mas a leitura disponível expôs principalmente modais e conteúdo limitado. Não foi feita uma comparação visual completa. Som Maior retornou HTTP 400. Nenhuma dessas empresas foi apresentada como concorrente local confirmada.
+
+## Refinamento de fotos e marca
+
+- equipe-frahm.jpg — última imagem do carrossel DdpTfxNiex7; equipe e participantes. Original preservado, enquadramento e cor via CSS.
+- audio-na-pratica.jpg — quinta imagem do mesmo carrossel, prática com equipamentos de som.
+- video-projecao.jpg — quarta imagem, projeção durante o evento.
+- logo-danni-transparente.png — versão tratada com fundo transparente a partir da marca nas referências oficiais.
