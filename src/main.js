@@ -1,77 +1,120 @@
-import '@fontsource/dm-sans/latin-400.css';
-import '@fontsource/dm-sans/latin-500.css';
-import '@fontsource/dm-sans/latin-600.css';
-import '@fontsource/dm-sans/latin-700.css';
-import '@fontsource/dm-sans/latin-800.css';
-import '@fontsource/dm-sans/latin-900.css';
-import '@fontsource/instrument-serif/latin-400-italic.css';
+import '@fontsource/barlow-condensed/latin-600.css';
+import '@fontsource/barlow-condensed/latin-700.css';
+import '@fontsource/barlow-condensed/latin-800.css';
+import '@fontsource/ibm-plex-sans/latin-400.css';
+import '@fontsource/ibm-plex-sans/latin-500.css';
+import '@fontsource/ibm-plex-sans/latin-600.css';
 import './style.css';
 import { store } from './store.js';
-import { speaker, homeAudio, lighting, tools, carCare } from './art.js';
 
-const arrow = '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-const external = '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+const image = name => `${import.meta.env.BASE_URL}images/${name}`;
+const arrow = '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg>';
+const diagonal = '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14" stroke="currentColor" stroke-width="1.6"/></svg>';
 const instagram = '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>';
-const contactUrl = store.whatsapp ? `https://wa.me/${store.whatsapp}` : store.instagram;
-const contactLabel = store.whatsapp ? 'Falar no WhatsApp' : 'Falar com a Danni';
-const logo = '<span class="logo">danni<span class="logo-sound">som<span class="logo-dot">.</span></span><span class="logo-bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span></span>';
-const products = [
- {name:'A sua casa. Outra experiência.',type:'Áudio & vídeo residencial',category:'audio',number:'01',art:homeAudio()},
- {name:'Som para reunir pessoas.',type:'Igrejas & academias',category:'audio',number:'02',art:speaker('card-box','box')},
- {name:'Acenda novas possibilidades.',type:'LED & tecnologia',category:'tecnologia',number:'03',art:lighting()},
- {name:'O seu caminho tem trilha.',type:'Som & acessórios automotivos',category:'automotivo',number:'04',art:speaker('card-woofer')},
- {name:'Para colocar a mão na massa.',type:'Ferramentas',category:'ferramentas',number:'05',art:tools()},
- {name:'Cuidado em cada detalhe.',type:'Cuidados automotivos',category:'automotivo',number:'06',art:carCare()},
+const whatsapp = '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m3 21 1.7-5A9 9 0 1 1 8 19.7L3 21Z" stroke="currentColor" stroke-width="1.5"/><path d="M8 7c-1 3 2 7 6 9l2-2-3-2-1 1-2-2 1-1-2-3H8Z" fill="currentColor"/></svg>';
+const pin = '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0Z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="1.5"/></svg>';
+const play = '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m9 5 11 7-11 7V5Z" fill="currentColor"/></svg>';
+const soundMark = '<span class="sound-mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>';
+const brand = `<span class="brand-image"><img src="${image('encontro-frahm.jpg')}" alt="Danni Som" width="1080" height="1351"></span>`;
+const contact = `https://wa.me/${store.whatsapp}`;
+const message = text => `${contact}?text=${encodeURIComponent(text)}`;
+const route = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(store.mapQuery)}`;
+const departments = [
+ { name:'Som & áudio', detail:'Residencial, igrejas e academias. Vamos conversar sobre o som que o seu ambiente precisa.', label:'Sonorização na prática', photo:'encontro-frahm.jpg', alt:'Publicação da Danni Som sobre o encontro Frahm Class, com os participantes reunidos', post:'DdpTfxNiex7',position:'50% 65%', caption:'Frahm Class · Encontro na Danni Som' },
+ { name:'Automotivo', detail:'Som, acessórios, palhetas e cuidados. Do que toca no carro ao que cuida dele.', label:'Para cuidar do seu carro', photo:'cuidados-automotivos.jpg', alt:'Integrante da equipe da Danni Som apresentando cuidados automotivos ao lado de um carro', post:'DeSfNyipYXa',position:'50% 45%',caption:'Cuidados automotivos · Direto da loja' },
+ { name:'Ferramentas', detail:'Alicates, chaves de fenda, Phillips e muito mais. Conte para a equipe o que você procura.', label:'A ferramenta certa está aqui', photo:'loja-ferramentas.jpg', alt:'Atendimento da Danni Som mostrando ferramentas nas prateleiras da loja',post:'Decrjt9JBlX',position:'50% 39%',caption:'Ferramentas · Direto das nossas prateleiras' },
+ { name:'Iluminação & LED', detail:'Iluminação, LED e tecnologia. Traga a sua ideia e veja as opções com a nossa equipe.',label:'Para o seu próximo projeto',photo:'eletrica.jpg',alt:'Publicação oficial da Danni Som em homenagem ao Dia do Eletricista',post:'Del5Gc7PR-L',position:'50% 58%',caption:'Uma homenagem da Danni Som aos eletricistas' },
+ { name:'Vídeo & acessórios', detail:'Áudio e vídeo, cabos e componentes eletrônicos. A conexão que falta no seu dia a dia.',label:'Conecte o que você precisa',photo:'loja-acessorios.jpg',alt:'Integrante da equipe da Danni Som no corredor de acessórios da loja',post:'DeNT-jcp23W',position:'50% 37%',caption:'Acessórios · A equipe que atende você' },
 ];
 
-document.querySelector('#app').innerHTML = `
- <div class="announcement"><span class="status-dot"></span> RIO CLARO, SP · 26 ANOS DE HISTÓRIA. <a href="${store.instagram}" target="_blank" rel="noopener noreferrer">ACOMPANHE NO INSTAGRAM ${external}</a></div>
- <header class="header"><a href="#" aria-label="Danni Som — início">${logo}</a><nav aria-label="Navegação principal"><a href="#universo">Nosso universo</a><a href="#danni">A Danni</a><a href="#visite">Onde estamos</a></nav><a class="button small dark header-contact" href="${contactUrl}" target="_blank" rel="noopener noreferrer">Bora conversar ${external}</a><button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span></button></header>
+ document.querySelector('#app').innerHTML = `
+ <header class="header">
+  <a class="brand" href="#inicio" aria-label="Danni Som — início">${brand}</a>
+  <span class="header-location">RIO CLARO, SP<br><strong>26 ANOS DE HISTÓRIA</strong></span>
+  <nav aria-label="Navegação principal"><a href="#departamentos">O que você procura</a><a href="#loja">Nossa loja</a><a href="#visite">Como chegar</a></nav>
+  <a class="header-contact" href="${contact}" target="_blank" rel="noopener noreferrer">${whatsapp}<span>Fale com a gente</span>${diagonal}</a>
+  <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Abrir menu"><span></span><span></span></button>
+  <nav id="mobile-nav" class="mobile-nav" aria-label="Navegação no celular" hidden><a href="#departamentos">O que você procura ${arrow}</a><a href="#loja">Nossa loja ${arrow}</a><a href="#visite">Como chegar ${arrow}</a></nav>
+ </header>
  <main id="conteudo">
- <section class="hero" aria-labelledby="hero-title"><div class="hero-copy"><div class="eyebrow"><span class="mini-bars" aria-hidden="true">▂ ▆ ▃ █</span> ÁUDIO, TECNOLOGIA & SOLUÇÕES</div><h1 id="hero-title">Muito mais<br>que <span class="serif">som.</span></h1><p>Da sua casa ao seu carro. Do seu negócio ao próximo projeto.<br>Há 26 anos, a Danni faz parte dessa conexão.</p><a class="button orange" href="#universo">Conheça nosso universo ${arrow}</a><div class="hero-footnote"><span class="plus">+</span> RUA 9, 2419 · RIO CLARO/SP</div></div><div class="hero-visual"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="orbit orbit-three"></div><div class="visual-top"><span>O SOM EM PRIMEIRO PLANO</span><span>DS / 01</span></div><span class="big-sound" aria-hidden="true">SOM</span><div class="hero-speaker">${speaker()}</div><div class="sound-label"><span class="status-dot"></span> SINTA CADA BATIDA</div><div class="visual-bottom"><span>FEITO PARA<br>QUEM SENTE.</span><button id="motion-toggle" class="motion-toggle" aria-pressed="false" aria-label="Pausar animações"><span class="pause-icon">Ⅱ</span></button></div></div></section>
- <div class="ticker" aria-hidden="true"><div>${Array(4).fill('<span>ÁUDIO. VÍDEO. TECNOLOGIA.</span><span class="asterisk">✳</span><span>26 ANOS. MUITO MAIS QUE SOM.</span><span class="asterisk">✳</span>').join('')}</div></div>
- <section class="universe section" id="universo" aria-labelledby="universe-title"><div class="section-top"><div><div class="eyebrow"><span class="tiny-square"></span> O QUE VOCÊ ENCONTRA AQUI</div><h2 id="universe-title">Um universo de <span class="serif">possibilidades.</span></h2></div><p>Para sua casa, seu carro e seu negócio.<br>Encontre o que faz sentido para você.</p></div><div class="filters" role="group" aria-label="Filtrar soluções"><button class="filter active" aria-pressed="true" data-filter="all">Tudo por aqui <span>06</span></button><button class="filter" aria-pressed="false" data-filter="audio">Áudio & vídeo</button><button class="filter" aria-pressed="false" data-filter="tecnologia">LED & tecnologia</button><button class="filter" aria-pressed="false" data-filter="automotivo">Automotivo</button><button class="filter" aria-pressed="false" data-filter="ferramentas">Ferramentas</button></div><div class="product-grid">${products.map(p=>`<a class="product-card" data-category="${p.category}" href="${contactUrl}" target="_blank" rel="noopener noreferrer" aria-label="Conversar sobre ${p.type}"><div class="product-image"><span class="product-number">/ ${p.number}</span>${p.art}<span class="product-arrow">${external}</span></div><div class="product-info"><span>${p.type}</span><h3>${p.name}</h3></div></a>`).join('')}</div><p class="catalog-note">Imagens ilustrativas. Consulte a loja sobre modelos e disponibilidade.</p></section>
- <section class="manifesto" id="danni" aria-labelledby="danni-title"><div class="manifesto-side"><div class="eyebrow"><span class="tiny-square"></span> DE RIO CLARO. PARA O SEU DIA A DIA.</div><div class="waveform" aria-hidden="true">${Array.from({length:36},(_,i)=>`<i style="--h:${18+Math.sin(i*.75)**2*100}px;--delay:${i*-.11}s"></i>`).join('')}</div><span class="wave-caption">SINTONIA BOA A GENTE RECONHECE.</span></div><div class="manifesto-copy"><h2 id="danni-title">26 anos de história.<br>E muito para <span class="serif">conectar.</span></h2><p>Começou no som. Hoje, vai muito além: áudio, vídeo, LED, tecnologia, ferramentas e soluções para a sua rotina. A mesma Danni Som. Um universo de possibilidades.</p><a class="text-link" href="${contactUrl}" target="_blank" rel="noopener noreferrer">Conte o que você precisa ${arrow}</a></div></section>
- <section class="social-section section"><div class="social-heading"><div><div class="eyebrow"><span class="tiny-square"></span> AUMENTA O SOM. SEGUE A DANNI.</div><h2>O próximo play<br>começa <span class="serif">no feed.</span></h2></div><a class="social-link" href="${store.instagram}" target="_blank" rel="noopener noreferrer">${instagram} ${store.instagramHandle} ${external}</a></div><a class="instagram-banner" href="${store.instagram}" target="_blank" rel="noopener noreferrer"><div class="banner-type" aria-hidden="true">DANNI<br><span>SOM.</span></div><div class="banner-middle"><span class="vinyl"><i></i></span><span class="banner-sticker">DÊ PLAY<br>NA SUA VIBE. ${external}</span></div><div class="banner-action"><span>PRODUTOS. NOVIDADES.<br>E MUITA FREQUÊNCIA BOA.</span><span class="circle-link">${instagram}</span></div></a></section>
- <section class="visit section" id="visite" aria-labelledby="visit-title"><div class="visit-copy"><div class="eyebrow"><span class="tiny-square"></span> DA TELA PARA A VIDA REAL</div><h2 id="visit-title">O som é bom.<br>A conversa,<br><span class="serif">melhor ainda.</span></h2><p class="store-address">${store.address || 'Quer conhecer a loja de perto? Fale com a Danni e combine sua visita.'}</p><a class="store-phone" href="${contactUrl}" target="_blank" rel="noopener noreferrer">${store.phoneDisplay}</a><a class="button dark" href="${contactUrl}" target="_blank" rel="noopener noreferrer">${contactLabel} ${external}</a><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(store.mapQuery || 'Danni Som')}" target="_blank" rel="noopener noreferrer">Traçar rota até a loja ${external}</a></div><div class="map-panel">${store.mapQuery ? `<iframe title="Localização da Danni Som" src="https://www.google.com/maps?q=${encodeURIComponent(store.mapQuery)}&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe><a class="map-address-card" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(store.mapQuery)}" target="_blank" rel="noopener noreferrer"><span><strong>Danni Som</strong><small>${store.address}</small></span><span>Ver no Maps ${external}</span></a>` : `<div class="map-grid" aria-hidden="true"><div class="map-park park-one"></div><div class="map-park park-two"></div><div class="map-road road-one"></div><div class="map-road road-two"></div><div class="map-road road-three"></div><div class="map-road road-four"></div><div class="map-water"></div></div><a class="map-search" href="https://www.google.com/maps/search/?api=1&query=Danni%20Som" target="_blank" rel="noopener noreferrer"><span class="map-pin">${logo}</span><span>Encontre a Danni Som ${external}</span><small>Abrir busca no Google Maps</small></a><span class="map-disclaimer">Ilustração de mapa · consulte a localização da loja</span>`}</div></section>
- <section class="closing"><p>SUA PRÓXIMA<br><span class="serif">frequência.</span></p><a href="${contactUrl}" target="_blank" rel="noopener noreferrer" aria-label="Fale com a Danni Som">${external}</a><span>COMEÇA COM UM OI.</span></section>
- </main><footer><a href="#" aria-label="Voltar ao início">${logo}</a><span>© ${new Date().getFullYear()} Danni Som.</span><a href="${store.instagram}" target="_blank" rel="noopener noreferrer">Instagram ${external}</a><a href="#conteudo">Voltar ao topo ↑</a></footer>
+  <section class="hero" id="inicio" aria-labelledby="hero-title">
+   <div class="hero-copy">
+    <div class="hero-kicker">ÁUDIO / TECNOLOGIA / SOLUÇÕES</div>
+    <h1 id="hero-title"><span>MUITO MAIS</span><span>QUE <em>SOM.</em></span></h1>
+    <div class="hero-description"><span class="hero-rule"></span><p>Você conhece pelo som.<br>Vai voltar por tudo o que encontra aqui.</p></div>
+    <a href="#departamentos" class="hero-discover">ENCONTRE O QUE PRECISA <span>${arrow}</span></a>
+    <div class="hero-signature">${soundMark}<span>DANNI SOM<br>RUA 9, 2419 · RIO CLARO</span><button type="button" class="motion-toggle" aria-label="Pausar animações" aria-pressed="false"><span>Ⅱ</span></button></div>
+   </div>
+   <div class="hero-photo"><img src="${image('loja-ferramentas.jpg')}" alt="A equipe da Danni Som e as prateleiras de ferramentas da loja em Rio Claro" fetchpriority="high" width="720" height="1280"><span class="photo-edge">GENTE DE VERDADE. LOJA DE VERDADE.</span><a href="https://www.instagram.com/reel/Decrjt9JBlX/" target="_blank" rel="noopener noreferrer" class="hero-film"><span class="play-button">${play}</span><span>CONHEÇA POR DENTRO<small>Direto do nosso Instagram</small></span>${diagonal}</a></div>
+   <div class="hero-bottom"><span>DO PRIMEIRO PLAY AO PRÓXIMO PROJETO.</span><a href="${contact}" target="_blank" rel="noopener noreferrer">CHAMA A DANNI ${diagonal}</a></div>
+  </section>
+  <div class="store-index" aria-label="Áreas da loja"><span>ÁUDIO E VÍDEO</span><span>AUTOMOTIVO</span><span>FERRAMENTAS</span><span>ILUMINAÇÃO</span><span>ACESSÓRIOS</span></div>
+  <section class="departments section" id="departamentos" aria-labelledby="departments-title">
+   <div class="section-heading"><div><span class="section-label">01 / POR AQUI VOCÊ ENCONTRA</span><h2 id="departments-title">QUAL É O<br>SEU <span>PROJETO?</span></h2></div><p>Uma loja, muitas possibilidades.<br>Escolha por onde começar.</p></div>
+   <div class="department-layout"><div class="department-selector" role="tablist" aria-orientation="vertical" aria-label="Departamentos da Danni Som">${departments.map((d,i)=>`<button type="button" class="department-tab ${i===0?'active':''}" id="department-tab-${i}" role="tab" aria-selected="${i===0}" tabindex="${i===0?'0':'-1'}" aria-controls="department-panel" data-index="${i}"><span class="department-number">0${i+1}</span><span class="department-name">${d.name}</span><span class="department-icon">${i===0?'−':'+'}</span></button>`).join('')}<div class="department-help">Não achou o que procura?<a href="${contact}" target="_blank" rel="noopener noreferrer">Pergunte para a Danni ${arrow}</a></div></div>
+   <div class="department-panel" id="department-panel" role="tabpanel" tabindex="0" aria-labelledby="department-tab-0"><div class="department-photo"><img id="department-image" src="${image(departments[0].photo)}" style="object-position:${departments[0].position}" alt="${departments[0].alt}" width="1080" height="1351" loading="lazy"><a id="department-post" href="https://www.instagram.com/p/${departments[0].post}/" target="_blank" rel="noopener noreferrer" aria-label="Ver publicação no Instagram">${instagram}</a><span id="department-caption">${departments[0].caption}</span></div><div class="department-detail"><div><h3 id="department-label">${departments[0].label}</h3><p id="department-description">${departments[0].detail}</p></div><a id="department-contact" href="${message('Olá! Quero saber mais sobre som e áudio.') }" target="_blank" rel="noopener noreferrer" aria-label="Conversar sobre Som & áudio">${diagonal}</a></div></div></div>
+  </section>
+  <section class="story" id="loja" aria-labelledby="story-title"><div class="story-copy"><span class="section-label">02 / A DANNI QUE VOCÊ CONHECE</span><h2 id="story-title">26 ANOS.<br>A MESMA<br><span>PROXIMIDADE.</span></h2><p>Em Rio Claro, a Danni Som reúne áudio, vídeo, tecnologia e soluções para a casa, o carro e o trabalho.</p><p>E tem uma coisa que continua igual: gente de verdade para conversar com você sobre o que precisa.</p><a class="line-link" href="${contact}" target="_blank" rel="noopener noreferrer">CONVERSE COM A NOSSA EQUIPE ${arrow}</a></div><figure class="story-photo"><img src="${image('encontro-frahm.jpg')}" alt="Registro publicado pela Danni Som do evento Frahm Class, reunindo equipe e participantes" loading="lazy" width="1080" height="1351"><figcaption><span>CONHECIMENTO QUE A GENTE COMPARTILHA.</span><a href="https://www.instagram.com/p/DdpTfxNiex7/" target="_blank" rel="noopener noreferrer">Frahm Class na Danni ${diagonal}</a></figcaption></figure></section>
+  <section class="social section" aria-labelledby="social-title"><div class="social-heading"><div><span class="section-label">03 / SEM FILTRO ENTRE A GENTE</span><h2 id="social-title">ACONTECE<br><span>NA DANNI.</span></h2></div><a href="${store.instagram}" class="instagram-link" target="_blank" rel="noopener noreferrer">${instagram}<span>${store.instagramHandle}</span>${diagonal}</a></div><div class="social-grid">${[{photo:'loja-ferramentas.jpg',post:'Decrjt9JBlX',category:'DENTRO DA LOJA',title:'A ferramenta certa, pertinho de você.',alt:'Equipe mostrando as ferramentas disponíveis na Danni Som',pos:'50% 30%'},{photo:'cuidados-automotivos.jpg',post:'DeSfNyipYXa',category:'CUIDADOS AUTOMOTIVOS',title:'O cuidado com o carro também passa aqui.',alt:'Equipe apresentando cuidados para o carro',pos:'50% 35%'},{photo:'loja-acessorios.jpg',post:'DeNT-jcp23W',category:'DICA DA EQUIPE',title:'Hora de trocar as palhetas?',alt:'A equipe da Danni Som apresentando palhetas automotivas',pos:'50% 30%'}].map(p=>`<a class="social-post" href="https://www.instagram.com/reel/${p.post}/" target="_blank" rel="noopener noreferrer"><div class="social-photo"><img src="${image(p.photo)}" style="object-position:${p.pos}" alt="${p.alt}" loading="lazy" width="720" height="1280"><span class="post-play">${play}</span></div><div class="post-heading"><span>${p.category}</span>${diagonal}</div><h3>${p.title}</h3></a>`).join('')}</div></section>
+  <section class="visit" id="visite" aria-labelledby="visit-title"><div class="visit-info"><span class="section-label">04 / A GENTE SE ENCONTRA AQUI</span><h2 id="visit-title">PASSA<br><span>NA DANNI.</span></h2><div class="visit-address">${pin}<div><strong>Rua 9, 2419</strong><span>Santana · Rio Claro/SP</span></div></div><a class="route-button" href="${route}" target="_blank" rel="noopener noreferrer">ABRIR ROTA NO MAPS ${diagonal}</a><div class="visit-contact"><span>PREFERE CHAMAR ANTES?</span><a href="${contact}" target="_blank" rel="noopener noreferrer">${store.phoneDisplay} ${arrow}</a></div></div><div class="map-panel"><iframe title="Localização da Danni Som — Rua 9, 2419, Rio Claro" src="https://www.google.com/maps?q=${encodeURIComponent(store.mapQuery)}&hl=pt-BR&z=17&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe><a class="map-fallback" href="${route}" target="_blank" rel="noopener noreferrer">${pin}<span>DANNI SOM<small>${store.address}</small></span>${diagonal}</a></div></section>
+  <section class="last-call"><span>CASA. CARRO. TRABALHO.</span><a href="${contact}" target="_blank" rel="noopener noreferrer">PODE CHAMAR<br><span>A DANNI.</span><span class="last-arrow">${diagonal}</span></a></section>
+ </main>
+ <footer><a class="brand footer-brand" href="#inicio" aria-label="Danni Som — voltar ao início">${brand}</a><span>© ${new Date().getFullYear()} Danni Som · Rio Claro/SP</span><a href="${store.instagram}" target="_blank" rel="noopener noreferrer">INSTAGRAM ${diagonal}</a><a href="#inicio">VOLTAR AO TOPO ↑</a></footer>
 `;
 
-const menu = document.querySelector('.menu-toggle');
-menu.addEventListener('click', () => {
- const expanded = menu.getAttribute('aria-expanded') !== 'true';
- menu.setAttribute('aria-expanded', String(expanded));
- menu.setAttribute('aria-label', expanded ? 'Fechar menu' : 'Abrir menu');
- document.querySelector('.header').classList.toggle('menu-open', expanded);
-});
-document.querySelectorAll('nav a').forEach(link => link.addEventListener('click', () => {
- menu.setAttribute('aria-expanded', 'false');
- menu.setAttribute('aria-label', 'Abrir menu');
- document.querySelector('.header').classList.remove('menu-open');
-}));
-document.querySelectorAll('.filter').forEach(button => button.addEventListener('click', () => {
- document.querySelectorAll('.filter').forEach(filter => {
-  const selected = filter === button;
-  filter.classList.toggle('active', selected);
-  filter.setAttribute('aria-pressed', String(selected));
+const tabs = [...document.querySelectorAll('.department-tab')];
+function selectDepartment(index, focus = false) {
+ const d = departments[index];
+ tabs.forEach((tab,i) => {
+  tab.classList.toggle('active',i===index);
+  tab.setAttribute('aria-selected',String(i===index));
+  tab.tabIndex = i===index ? 0 : -1;
+  tab.querySelector('.department-icon').textContent = i===index ? '−' : '+';
  });
- document.querySelectorAll('.product-card').forEach(card => {
-  card.hidden = button.dataset.filter !== 'all' && card.dataset.category !== button.dataset.filter;
- });
-}));
-const motionToggle = document.querySelector('#motion-toggle');
-function setPaused(paused) {
- document.documentElement.classList.toggle('motion-paused', paused);
- motionToggle.setAttribute('aria-pressed', String(paused));
- motionToggle.setAttribute('aria-label', paused ? 'Ativar animações' : 'Pausar animações');
- motionToggle.querySelector('span').textContent = paused ? '▷' : 'Ⅱ';
+ if (focus) tabs[index].focus();
+ const panel = document.querySelector('#department-panel');
+ panel.setAttribute('aria-labelledby',`department-tab-${index}`);
+ const img = document.querySelector('#department-image');
+ img.src = image(d.photo);img.alt=d.alt;img.style.objectPosition=d.position;
+ document.querySelector('#department-post').href=`https://www.instagram.com/p/${d.post}/`;
+ document.querySelector('#department-caption').textContent=d.caption;
+ document.querySelector('#department-label').textContent=d.label;
+ document.querySelector('#department-description').textContent=d.detail;
+ const c = document.querySelector('#department-contact');
+ c.href=message(`Olá! Quero saber mais sobre ${d.name.toLowerCase()}.`);
+ c.setAttribute('aria-label',`Conversar sobre ${d.name}`);
+ panel.classList.remove('changing');
+ requestAnimationFrame(()=>{panel.classList.add('changing');});
 }
-setPaused(window.matchMedia('(prefers-reduced-motion: reduce)').matches);
-motionToggle.addEventListener('click', () => setPaused(motionToggle.getAttribute('aria-pressed') !== 'true'));
-const observer = new IntersectionObserver(entries => {
- entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
-}, { threshold: 0.08 });
-document.querySelectorAll('.section-top,.product-card,.manifesto-copy,.social-heading,.visit-copy').forEach(element => {
- element.classList.add('reveal'); observer.observe(element);
+tabs.forEach((tab,index)=>{
+ tab.addEventListener('click',()=>selectDepartment(index));
+ tab.addEventListener('keydown',event=>{
+  let next=index;
+  if(event.key==='ArrowDown'||event.key==='ArrowRight') next=(index+1)%tabs.length;
+  else if(event.key==='ArrowUp'||event.key==='ArrowLeft') next=(index-1+tabs.length)%tabs.length;
+  else if(event.key==='Home')next=0;
+  else if(event.key==='End')next=tabs.length-1;
+  else return;
+  event.preventDefault();selectDepartment(next,true);
+ });
 });
+const menu = document.querySelector('.menu-toggle');
+const mobileNav = document.querySelector('.mobile-nav');
+function closeMenu(){menu.setAttribute('aria-expanded','false');menu.setAttribute('aria-label','Abrir menu');mobileNav.hidden=true;}
+menu.addEventListener('click',()=>{
+ const open=menu.getAttribute('aria-expanded')!=='true';
+ menu.setAttribute('aria-expanded',String(open));menu.setAttribute('aria-label',open?'Fechar menu':'Abrir menu');mobileNav.hidden=!open;
+});
+mobileNav.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&menu.getAttribute('aria-expanded')==='true'){closeMenu();menu.focus();}});
+const motion = document.querySelector('.motion-toggle');
+function setPaused(paused){
+ document.documentElement.classList.toggle('motion-paused',paused);
+ motion.setAttribute('aria-pressed',String(paused));motion.setAttribute('aria-label',paused?'Ativar animações':'Pausar animações');motion.querySelector('span').textContent=paused?'▷':'Ⅱ';
+}
+const reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
+setPaused(reducedMotion.matches);
+reducedMotion.addEventListener('change',e=>setPaused(e.matches));
+motion.addEventListener('click',()=>setPaused(motion.getAttribute('aria-pressed')!=='true'));
+const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('entered');observer.unobserve(e.target);}}),{threshold:.1});
+document.querySelectorAll('.section-heading,.department-layout,.story-copy,.story-photo,.social-heading,.social-post,.visit-info').forEach(e=>{e.classList.add('reveal');observer.observe(e);});

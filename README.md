@@ -18,15 +18,17 @@ Build de produção: `npm run build`. Conferência do build: `npm run preview --
 
 Dados comerciais em `src/store.js`. Nome, áreas de atuação, 26 anos, endereço e WhatsApp foram confirmados no perfil público e nas legendas da loja. Fontes e referências setoriais em [RESEARCH.md](RESEARCH.md).
 
-A direção visual (laranja, verde claro e grafite), o lettering e as ilustrações são propostas. Os arquivos de imagem do Instagram ainda retornam HTTP 403, portanto falta conferir logo, cores e fotos oficiais antes de publicar. As ilustrações são autorais e não representam estoque ou modelos específicos.
+A direção visual segue a referência de Instagram enviada pelo usuário: azul, amarelo, símbolo de áudio e tipografia com presença de loja. As fotos reais do perfil estão em `public/images/` e são servidas localmente, sem URLs de CDN que expiram. O logo é exibido a partir da região da marca em uma publicação oficial, com enquadramento CSS; não foi redesenhado.
 
-Os botões de contato abrem o WhatsApp comercial confirmado: (19) 99690-1954. O mapa incorporado usa Rua 9, 2419 — Rio Claro/SP, confirmado em duas legendas. Confira visualmente a localização geocodificada antes de publicar. Se o provedor de mapas estiver indisponível, o endereço escrito e o link de rota continuam acessíveis.
+A navegação por departamento usa abas com suporte a clique, teclado (setas, Home e End), painel de imagem e contato contextual por WhatsApp. Os reels levam às publicações originais da loja. O botão de pausa e `prefers-reduced-motion` controlam as animações.
 
-Não foram adicionados preços, avaliações ou horários não confirmados. As referências de fabricantes não foram apresentadas como marcas vendidas pela loja.
+O mapa usa a busca comercial **Danni Som Rio Claro**, cuja resposta do Google confirmou R. 9, 2419 — Santana, Rio Claro/SP, CEP 13500-145. A query anterior, apenas com rua e número, apontava para Jardim Guanabara e foi substituída. Não use a query ambígua anterior.
+
+Os botões de contato usam o WhatsApp comercial confirmado: (19) 99690-1954. Não foram adicionados preços, avaliações ou horários não confirmados. A referência ao Frahm Class corresponde a um evento publicado pela loja e não afirma certificação ou revenda autorizada.
 
 ## Validação
 
-Build de produção e navegação funcional em Chromium. Conferir filtros, menu móvel, links e controle de animações. A interface respeita `prefers-reduced-motion`; o controle de pausa interrompe os movimentos contínuos. Não há backend, formulário de coleta ou checkout.
+Build de produção e navegação funcional em Chromium. Conferir as cinco abas de departamento, teclado, menu móvel, links e controle de animações. A interface respeita `prefers-reduced-motion`; o controle de pausa interrompe os movimentos contínuos. Não há backend, formulário de coleta ou checkout.
 
 ## Publicação
 

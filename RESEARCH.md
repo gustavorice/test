@@ -22,8 +22,24 @@ Estas são referências de fabricantes, não concorrentes locais confirmados nem
 - https://www.stetsom.com.br/ — divisão clara entre produtos, suporte e contato. Aplicação no projeto: separar descoberta do contato direto com a loja.
 - JBL e SomSC retornaram 403. As buscas não produziram resultados úteis para uma comparação de concorrentes locais. Não tratamos esses sites como pesquisados com sucesso.
 
-## Imagens e identidade
+## Identidade e materiais da revisão
 
-O HTML do Instagram expôs referências de imagem de perfil e seis publicações, mas os downloads em cdninstagram.com retornaram 403 no proxy do ambiente. Os domínios de imagem foram adicionados ao rascunho de rede; isso não significa que a regra tenha sido aplicada à máquina.
+O usuário enviou uma captura do Instagram confirmando azul e amarelo, marca inclinada com símbolo de áudio, categorias dos destaques e endereço em Santana, CEP 13500-145. O acesso ao CDN passou a funcionar, permitindo baixar e inspecionar as publicações. Os JPEGs originais usados no site são preservados em public/images/; os enquadramentos são feitos em CSS. O material de homenagem aos anos 80 parece uma criação gráfica e não foi utilizado como fotografia histórica ou retrato da loja.
 
-O lettering, a paleta e as ilustrações continuam sendo propostas. Não houve leitura visual do logo nem das fotos, portanto não são descritos como oficiais. As ilustrações não representam modelos específicos. O endereço do mapa foi confirmado em duas legendas; a posição geocodificada é responsabilidade do provedor e deve ser conferida visualmente antes da publicação final.
+Materiais locais:
+
+- loja-ferramentas.jpg — Decrjt9JBlX, equipe e ferramentas reais.
+- cuidados-automotivos.jpg — DeSfNyipYXa, equipe e carro.
+- loja-acessorios.jpg — DeNT-jcp23W, equipe e corredor da loja.
+- encontro-frahm.jpg — DdpTfxNiex7, arte e registro do evento. A região superior da marca é enquadrada por CSS para uso no cabeçalho.
+- eletrica.jpg — Del5Gc7PR-L, publicação oficial em homenagem ao Dia do Eletricista. Não apresentada como foto da loja.
+
+O site https://www.dannisom.com.br/ foi consultado e também confirma Rua 9, 2419, Santana, além de áudio, vídeo, cabos, componentes e amplificadores. O logo antigo e o fundo genérico desse site não foram usados. Não copiamos o formulário sem backend funcional.
+
+## Verificação do endereço
+
+A consulta do Google Maps apenas por “Rua 9, 2419, Rio Claro, SP” resolveu para R. Nove no Jardim Guanabara, uma localização incorreta para esta loja. Foi substituída pela busca comercial “Danni Som Rio Claro”, que retornou o cadastro Danni Som e R. 9, 2419 — Santana, Rio Claro/SP, 13500-145, nas coordenadas -22.3997744, -47.5705148. O endereço completo com Santana e CEP também resolveu para o mesmo local. Os dados coincidem com a captura enviada pelo usuário e com o site oficial.
+
+## Referências adicionais consultadas
+
+https://www.audioprime.com.br/ respondeu HTTP 200, mas a leitura disponível expôs principalmente modais e conteúdo limitado. Não foi feita uma comparação visual completa. Som Maior retornou HTTP 400. Nenhuma dessas empresas foi apresentada como concorrente local confirmada.
